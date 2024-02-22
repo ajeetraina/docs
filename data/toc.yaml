@@ -59,9 +59,9 @@ Guides:
       path: /guides/walkthroughs/publish-your-image/
   - sectiontitle: "Building images"
     section:
-    - title: "Writing Dockerfile"
+    - title: "Writing a Dockerfile"
       path: /guides/docker-concepts/building-images/writing-dockerfile/
-    - title: "Building and Publishing the Image"
+    - title: "Build, tag, and publish an image"
       path: /guides/docker-concepts/building-images/building-and-publishing-image/
     - title: "Building in CI/CD"
       path: /guides/docker-concepts/building-images/building-in-cicd/
