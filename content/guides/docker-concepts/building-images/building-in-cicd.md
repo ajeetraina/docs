@@ -147,8 +147,10 @@ When the workflow is complete, go to your repositories on Docker Hub.If you see 
 
 To learn more about building in CI/CD, visit the following resources:
 
+- [Continuous Integration with Docker](https://docs.docker.com/build/ci/)
+- [Introduction to GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
+- [Using secrets with GitHub Actions](https://docs.docker.com/build/ci/github-actions/secrets/)
 - [Configuring CI/CD for your Node.js application](https://docs.docker.com/language/nodejs/configure-ci-cd/)
-- [Configuring CI/CD for your Rust application](https://docs.docker.com/language/rust/configure-ci-cd/)
 - [Configuring CI/CD for your Python application](https://docs.docker.com/language/python/configure-ci-cd/)
 - [Configuring CI/CD for your Java application](https://docs.docker.com/language/java/configure-ci-cd/)
 

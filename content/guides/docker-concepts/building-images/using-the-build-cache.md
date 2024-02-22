@@ -4,6 +4,16 @@ keywords: concepts, build, images, docker desktop
 description: Using the Build Cache
 ---
 
+<iframe width="650" height="365" src="https://www.youtube.com/embed/nsWWQ1xoEy0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Explanation
+
+In this concept, you will learn the following:
+
+- Understanding the Docker Image Layers
+- How to make Docker builds faster 
+- How to use Cache efficiently
+
 Building Docker images shouldn't take forever. Ideally, the process should be swift and resource-conscious. Luckily, Docker's layered approach plays a crucial role in achieving this objective.
 
 
@@ -14,7 +24,7 @@ Think of a Docker image as a cake. Each layer represents a step in the recipe, l
 Docker images are built using layers, and each command in a Dockerfile results in a new layer. These layers are cached and can be reused if the command and its context haven't changed since the last build. However, changes in dependencies or source code can invalidate the cache for subsequent commands. The layered approach makes it efficient to share and distribute Docker images. If someone has already pulled the layers you need, Docker only needs to pull the new or changed layers when you fetch the image.
 
 
-### Docker Build Cache for a Sample NodeJS application
+### A Sample NodeJS application
 
 Node.js applications often require dependencies to be installed using package managers like npm or yarn. Leveraging Docker's build cache efficiently can significantly speed up the Docker image building process. This tutorial will guide you through utilizing the Docker build cache effectively for Node.js applications.
 
@@ -298,7 +308,7 @@ Using the cache efficiently in Docker builds is crucial for optimizing build tim
 
 
 
-1. **Order your layers**
+### 1. **Order your layers**
 
 Arrange the commands in your Dockerfile logically. Place expensive steps, such as installing dependencies, near the beginning of the Dockerfile. Steps that change frequently should come later to avoid unnecessary rebuilds of unchanged layers. For example, separate the copying of package management files from the copying of project source code.
 
@@ -324,7 +334,7 @@ Moved the COPY instruction for package.json and yarn.lock to a separate step bef
 
 
 
-2. **Keep Layers Small**
+### 2. **Keep Layers Small**
 
 To keep the layers small, ensure only necessary files are included. You can create a .dockerignore file to exclude unnecessary files and directories from the build context.
 
@@ -339,16 +349,8 @@ Example .dockerignore:
 This file instructs Docker to exclude the node_modules directory and .git directory from the build context, preventing them from being copied into the image.
 
 
-### **3. Using the Dedicated RUN Cache**
 
-To leverage the dedicated cache for the RUN command, you can use the --mount flag to specify the cache type. For example, when installing dependencies, you can preserve the Yarn cache between builds:
-
-```console
- RUN --mount=type=cache,target=/usr/local/share/.cache/yarn
-    yarn install --production
-```
-
-### **4. Minimize the Number of Layers**
+### 3. **Minimize the Number of Layers**
 
 Lastly, ensure that the Dockerfile has a minimal number of layers by combining commands wherever possible. For example, instead of using multiple RUN commands, you can combine them into a single RUN instruction:
 
@@ -363,6 +365,10 @@ Lastly, ensure that the Dockerfile has a minimal number of layers by combining c
 
 
 In this example, the && operator allows multiple commands to be executed sequentially within a single RUN instruction, reducing the number of layers.
+
+## Additional Resources
+
+- [Optimizing builds with cache management](https://docs.docker.com/build/cache/)
 
 By following these optimization techniques, you can make your Docker builds faster and more efficient, leading to quicker iteration cycles and improved development productivity. 
 
