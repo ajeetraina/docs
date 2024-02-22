@@ -4,37 +4,27 @@ keywords: concepts, build, images, docker desktop
 description: Building in CI/CD
 ---
 
-Before we jump into setting up and using GitHub Actions to build and test your Docker image, let’s spend time in understanding Docker Build Cloud.
+<iframe width="650" height="365" src="https://www.youtube.com/embed/nsWWQ1xoEy0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+## Explanation
 
-### Quick Overview of Docker Build Cloud
+In this concept, you will learn the following:
 
-Docker Build Cloud is a service that lets you build your container images faster, both locally and in CI. Builds run on cloud infrastructure optimally dimensioned for your workloads, no configuration required. The service uses a remote build cache, ensuring fast builds anywhere and for all team members.
+- How to setup and use GitHub Actions to build and test your Docker image
+- How to push the Docker image to the registry
 
-[Using Docker Build Cloud in CI ](https://docs.docker.com/build/cloud/ci/)can speed up your build pipelines, which means less time spent waiting and context switching. You control your CI workflows as usual, and delegate the build execution to Docker Build Cloud.
+GitHub Actions is one of the popular continuous integration and continuous delivery(CI/CD) platform that allows you to automate your build, test and deployment pipeline. It allows you to create workflows that build and test every pull requests to your repository, or merge pull requests to the production.
 
-Building with Docker Build Cloud in CI involves the following steps:
+Building in CI involves the following steps:
 
+* Create a new repository on GitHub
+* Define the GitHub Actions workflow
+* Run the workflow
 
-
-* Sign in to a Docker account.
-* Set up Buildx and connect to the builder.
-* Run the build.
-
-When using Docker Build Cloud in CI, it's recommended that you push the result to a registry directly, rather than loading the image and then pushing it. Pushing directly speeds up your builds and avoids unnecessary file transfers.
-
-
-### Getting Started with Docker Build Cloud
-
-To get started with Docker Build Cloud, [create a Docker account](https://docs.docker.com/docker-id/) and sign up for the free plan on the [Docker Build Cloud Dashboard](https://build.docker.com/?_gl=1*16b5dz9*_ga*MTYxMTUxMzkzOS4xNjgzNTM0MTcw*_ga_XJWPQMJYHQ*MTcwNzIzNDgxMi42MTMuMS4xNzA3MjM2ODQzLjcuMC4w)
+### Getting Started 
 
 In this section, you'll learn how to set up and use GitHub Actions to build and test your Docker image as well as push it to Docker Hub. You will complete the following steps:
 
-
-
-* Create a new repository on GitHub.
-* Define the GitHub Actions workflow.
-* Run the workflow
 
 
 ## Create the repository
@@ -69,7 +59,7 @@ Let’s follow the steps below to set up the GitHub Actions workflow for buildin
 4. Add the following content into the YAML file. You can name this file anything you like.
 
 ```console
- name: ci
+name: ci
 
 on:
   push:
@@ -89,18 +79,15 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        with:
-          version: "lab:latest"
-          driver: cloud
-          endpoint: "docker/devrel"
+      
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: "IMAGE"
-          # For pull requests, export results to the build cache.
-          # Otherwise, push to a registry.
-          outputs: ${{ github.event_name == 'pull_request' && 'type=cacheonly' || 'type=registry,push=true' }}
+          push: true
+          target: final
+          tags: ${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:latest
+      
 ```
 
 The following workflow automates the process of building and pushing a Docker image when code is pushed to the main branch of the repository. It uses Docker Hub for registry storage and leverages Docker Buildx for efficient multi-platform image building.
@@ -142,15 +129,11 @@ runs-on: ubuntu-latest: The job will run on a virtual machine with the latest Ub
 * password: ${{ secrets.DOCKER_PAT }}: Retrieves the password from a secret named DOCKER_PAT.
 3. **Setup Docker Buildx:**
 * **uses: docker/setup-buildx-action@v3**: Sets up Docker Buildx for building multi-platform images.
-* version: "lab:latest": Uses the latest experimental version of Buildx.
-* driver: cloud: Uses a cloud-based builder for potentially faster builds.
-* endpoint: "docker/devrel": Specifies a cloud builder endpoint from Docker DevRel.
 4. **Build and push:**
 * uses: docker/build-push-action@v5: Builds and pushes the Docker image.
 * context: .: Uses the current directory as the build context.
-* tags: "IMAGE": Tags the image with the tag "IMAGE" (presumably to be replaced with a specific tag).
-* outputs: Conditionally exports build cache or pushes to a registry based on whether it's a pull request or not.
-
+* target: specifies the build target within the Dockerfile
+* tags: defines the image tag for the  built image. It dynamically uses the username from the secrets and the repository name from the event context t create a unique tag.
 
 ## Run the workflow
 
@@ -158,12 +141,19 @@ Save the workflow file and run the job.
 
 ![github workflow](github_workflow.png)
 
-When the workflow is complete, go to your repositories on Docker Hub.If you see the new repository in that list, it means the GitHub Actions successfully pushed the image to Docker Hub.
+When the workflow is complete, go to your repositories on Docker Hub.If you see the new repository in that list, it means the GitHub Actions successfully pushed the image to Docker Hub ! 🎉
+
+### Additional Resources
+
+To learn more about building in CI/CD, visit the following resources:
+
+- [Configuring CI/CD for your Node.js application](https://docs.docker.com/language/nodejs/configure-ci-cd/)
+- [Configuring CI/CD for your Rust application](https://docs.docker.com/language/rust/configure-ci-cd/)
+- [Configuring CI/CD for your Python application](https://docs.docker.com/language/python/configure-ci-cd/)
+- [Configuring CI/CD for your Java application](https://docs.docker.com/language/java/configure-ci-cd/)
 
 
-### Recap
-
-In this section, you learned how to set up a GitHub Actions workflow for your Node.js application.
+Now that you have learned about building and publishing images to Docker Hub using CI/CD, it's time to learn how to make your Docker builds faster and more efficient using build cache.
 
 
 {{< button text="Using the Build Cache" url="using-the-build-cache" >}}

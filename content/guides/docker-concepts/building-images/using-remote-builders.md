@@ -4,6 +4,19 @@ keywords: concepts, build, images, docker desktop
 description: Using remote builders
 ---
 
+<iframe width="650" height="365" src="https://www.youtube.com/embed/nsWWQ1xoEy0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Explanation
+
+In this concept, you will learn the following:
+
+- Using remote builder like Docker Build Cloud
+
+Docker Build Cloud is a service that lets you build your container images faster, both locally and in CI. Builds run on cloud infrastructure optimally dimensioned for your workloads, no configuration required. The service uses a remote build cache, ensuring fast builds anywhere and for all team members.
+
+[Using Docker Build Cloud in CI ](https://docs.docker.com/build/cloud/ci/)can speed up your build pipelines, which means less time spent waiting and context switching. You control your CI workflows as usual, and delegate the build execution to Docker Build Cloud.
+
+
 [Docker Cloud Build](https://docs.docker.com/build/cloud/) offers a powerful and scalable solution for building container images for multiple architectures, leveraging dedicated remote builders and a shared cache for efficiency. Depending on your specific needs and build complexity, it can be an excellent choice for streamlining your multi-arch workflow
 
 
