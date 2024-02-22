@@ -98,42 +98,33 @@ Here's a breakdown of the GitHub Actions workflow:
 
 1. **Workflow Name:**
 
-ci: This name suggests it's a continuous integration workflow, likely intended to build and test code changes as they're made.
-
-
+`ci`: This name suggests it's a continuous integration workflow, likely intended to build and test code changes as they're made.
 
 2. **Triggers:**
 
-on: push: The workflow will be triggered when code is pushed to the repository.
-
-branches: - "main": It will specifically run when code is pushed to the main branch.
-
-
+`on: push`: The workflow will be triggered when code is pushed to the repository.
+`branches`: - "main": It will specifically run when code is pushed to the main branch.
 
 3. **Jobs:**
 
-docker: This job contains the steps for building and pushing a Docker image.
-
-runs-on: ubuntu-latest: The job will run on a virtual machine with the latest Ubuntu OS.
-
+`docker`: This job contains the steps for building and pushing a Docker image.
+`runs-on`: ubuntu-latest: The job will run on a virtual machine with the latest Ubuntu OS.
 
 ## Steps:
 
-
-
 1. **Checkout:**
-* uses: actions/checkout@v4: This step checks out the code from the repository to the virtual machine.
+* `uses : actions/checkout@v4`: This step checks out the code from the repository to the virtual machine.
 2. **Log in to Docker Hub:**
-* uses: docker/login-action@v3: Logs in to Docker Hub using provided credentials.
-* username: ${{ secrets.DOCKER_USER }}: Retrieves the username from a secret named DOCKER_USER.
-* password: ${{ secrets.DOCKER_PAT }}: Retrieves the password from a secret named DOCKER_PAT.
+* `uses`: docker/login-action@v3`: Logs in to Docker Hub using provided credentials.
+* `username: ${{ secrets.DOCKER_USER }}`: Retrieves the username from a secret named DOCKER_USER.
+* `password: ${{ secrets.DOCKER_PAT }}`: Retrieves the password from a secret named DOCKER_PAT.
 3. **Setup Docker Buildx:**
-* **uses: docker/setup-buildx-action@v3**: Sets up Docker Buildx for building multi-platform images.
+* `uses: docker/setup-buildx-action@v3`: Sets up Docker Buildx for building multi-platform images.
 4. **Build and push:**
-* uses: docker/build-push-action@v5: Builds and pushes the Docker image.
-* context: .: Uses the current directory as the build context.
-* target: specifies the build target within the Dockerfile
-* tags: defines the image tag for the  built image. It dynamically uses the username from the secrets and the repository name from the event context t create a unique tag.
+* `uses: docker/build-push-action@v5`: Builds and pushes the Docker image.
+* `context: .`: Uses the current directory as the build context.
+* `target`: specifies the build target within the Dockerfile
+* `tags`: defines the image tag for the  built image. It dynamically uses the username from the secrets and the repository name from the event context t create a unique tag.
 
 ## Run the workflow
 

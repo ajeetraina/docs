@@ -28,18 +28,20 @@ Docker Build Cloud is a service that lets you build your container images faster
 * Ensure that you have the latest version of Docker Desktop installed.
 
 
-## Step 1. Login to [https://build.docker.com](https://build.docker.com)
+### Step 1. Login to Docker Cloud Build
 
-Feel free to use your own Docker Hub credentials to access your Hub organization.
+Open [this link](https://build.docker.com) to access Docker Build dashboard.
+
+You can use your own Docker Hub credentials to access your Hub organization.
 
 
-## Step 2.  Ensure that your Docker Hub namespace ID is added to the right organization
+### Step 2.  Ensure that your Docker Hub namespace ID is added to the right organization
 
 
 ![Build Cloud Username](build_cloud_userid.png)
 
 
-## Step 3. Click “Create a New Builder”.
+### Step 3. Click “Create a New Builder”.
 
 For our demonstration, we have created a new builder called `testing`.
 
@@ -47,12 +49,12 @@ For our demonstration, we have created a new builder called `testing`.
 
 
 
-## Step 4.  Click the new Builder to open up the instructions
+### Step 4.  Click the new Builder to open up the instructions
 
 ![Builder Instructions](builder_instructions.png)
 
 
-## Step 5. Open up the terminal and sign-in with your Docker account
+### Step 5. Open up the terminal and sign-in with your Docker account
 
 Please do note that while password, you need to provide PAT credentials.
 
@@ -61,7 +63,7 @@ Please do note that while password, you need to provide PAT credentials.
 ```
 
 
-## Step 6.  Verifying the new Buildx driver for Docker Build Cloud
+### Step 6.  Verifying the new Buildx driver for Docker Build Cloud
 
 You can verify the `buildx` driver for Cloud using `–-help in the latest release.`
 
@@ -88,7 +90,7 @@ Options:
 ```
 
 
-## Step 7. Create a local instance of the cloud builder on your local machine.
+### Step 7. Create a local instance of the cloud builder on your local machine.
 
 ```console
  docker buildx create --driver cloud collabnix/testing cloud-collabnix-testing
@@ -97,14 +99,14 @@ Options:
 As a result, you will see `cloud-collabnix-testing` as the output.
 
 
-## Step 8. Cloning a sample Node application
+### Step 8. Cloning a sample Node application
 
 ```console
  git clone https://github.com/docker/getting-started-todo-app
  cd getting-started-todo-app
  git checkout -b build-image-from-scratch
 ```
-## Step 9. Use the cloud builder, initiate a docker build with the following command
+### Step 9. Use the cloud builder, initiate a docker build with the following command
 
 ```console
  docker buildx build --builder cloud-collabnix-testing --tag collabnix/myapp .
@@ -144,21 +146,21 @@ View build details: docker-desktop://dashboard/build/cloud-collabnix-testing/lin
 
 ```
 
-## Step  10. Set cloud builder as default(Optional)
+### Step  10. Set cloud builder as default(Optional)
 
 ```console
  docker buildx use cloud-collabnix-testing --global
 ```
 
 
-## Step 11. Viewing the Builder on Docker Desktop
+### Step 11. Viewing the Builder on Docker Desktop
 
 ![view the builder](builder_view.png)
 
 
 
 
-## Step 12. Running Multi-platform Builds
+### Step 12. Running Multi-platform Builds
 
 In order to run multi-platform builds, you can run the following command specifying all of the platforms that you want to build as shown:
 
@@ -170,10 +172,20 @@ In order to run multi-platform builds, you can run the following command specify
 Note: If you don't specify the platform, Docker Build Cloud automatically builds for the architecture matching your local environment.
 
 
-## Step 14. Unsetting Docker Build Cloud as the default builder
+### Step 14. Unsetting Docker Build Cloud as the default builder
 
 ```console
  docker context use default
 ```
+
+## Additional Resources
+
+- [Overview of Docker Build Cloud](https://docs.docker.com/build/cloud/)
+- [Use Docker Build Cloud in CI](https://docs.docker.com/build/cloud/ci/)
+- [Optimize for building in the cloud](https://docs.docker.com/build/cloud/optimization/)
+
+
+Now that you have learned how to use remote builder like Docker Build Cloud, it's time to see how to inject secrets during the build.
+
 
 {{< button text="Injecting Secrets during the build" url="injecting-secrets" >}}
