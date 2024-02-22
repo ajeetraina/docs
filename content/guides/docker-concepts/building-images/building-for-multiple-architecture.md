@@ -3,6 +3,13 @@ title: Building for Multiple architecture
 keywords: concepts, build, images, docker desktop
 description: Building for Multiple architecture
 ---
+<iframe width="650" height="365" src="https://www.youtube.com/embed/nsWWQ1xoEy0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Explanation
+
+In this concept, you will learn the following:
+- How to build multi-platform Docker Images
+
 
 Traditionally, Docker images were tied to a specific architecture and operating system. However, with multi-platform support, a single Docker image can contain variants for different architectures and operating systems. This means that developers can build images that run seamlessly across diverse environments, from x86_64 machines to ARM-based devices, and even different operating systems like Windows.
 
@@ -10,45 +17,6 @@ Traditionally, Docker images were tied to a specific architecture and operating 
 ### Building Multi-Platform Images
 
 When building Docker images, developers can specify the target platform using the `--platform` flag. For example, you can build images for Linux on AMD64, ARM64, or other architectures. By default, Docker allows building for a single platform at a time. However, with advanced strategies, such as QEMU emulation or using multiple native nodes, developers can build for multiple platforms simultaneously.
-
-
-### Strategies for Building Multi-Platform Images:
-
-There are several strategies for building multi-platform Docker images, each with its own advantages and use cases:
-
-
-
-* **QEMU Emulation:** This strategy leverages QEMU emulation support in the kernel to build multi-platform images. While easy to get started with, QEMU emulation can be slower than native builds, especially for compute-intensive tasks.
-* **Multiple Native Nodes:** Building on multiple native nodes provides better support for complex scenarios that QEMU can't handle. By adding additional nodes to a builder, developers can achieve better performance and flexibility.
-* **Cross-Compilation:** For projects with good support for cross-compilation, developers can use multi-stage builds in Dockerfiles to cross-compile binaries for different architectures. This approach utilizes native architecture of the build node and can be highly efficient.
-
-
-### Limitations of local builds for multi-arch:
-
-
-
-* **Limited resources:** Your local machine might not have sufficient resources (CPU, memory) to handle complex multi-arch builds efficiently, especially for multiple or high-resource architectures.
-* **Inconsistent environment:** Building on your local machine might lead to inconsistencies due to varying software versions or missing tools compared to other developers' machines.
-* **Manual scaling:** Scaling up local builds is impractical and resource-intensive.
-
-
-### Choosing the right approach:
-
-For simple multi-arch builds with limited complexity, building locally with Docker Buildx might be sufficient. However, for large, complex, or frequent multi-arch builds, utilizing Docker Cloud Build as a remote builder offers significant advantages in terms of speed, resource optimization, and consistency
-
-
-### Using Docker Cloud Build as a remote Builder
-
-[Docker Build Cloud](https://docs.docker.com/build/cloud/) is a service that lets you build your container images faster, locally as well as in CI. It was designed specifically to help developers in their inner loop where they don’t have to change workflows and have all of their tools that may not be accessible in CI. Builds run on cloud infrastructure optimally dimensioned for your workloads; no configuration required. The service uses a remote build cache, ensuring fast builds anywhere and for all team members.
-
-Docker Cloud Build acts as both a remote and local builder depending on your specific choice and configuration. When you use Docker Cloud Build, your Dockerfile and context are uploaded to the cloud, and the actual build process occurs on remote computing resources managed by Docker. This is different from building locally on your own machine, where you have limited resources and potentially varying configurations. When it comes to building for multiple architectures with Docker, Docker Cloud Build can definitely act as a remote builder and offer specific advantages:
-
-
-
-* **Multi-arch builds:** Docker Cloud Build allows you to simultaneously build your container image for different architectures (e.g., amd64, arm64) within a single build command. This eliminates the need to run separate builds for each architecture, saving you time and effort.
-* **Remote builders with dedicated resources:** Unlike your local machine, Docker Cloud Build provides access to powerful remote builders with pre-installed compilers and tools specific to different architectures. This ensures consistent and optimized builds across all targets.
-* **Scalability:** For large or complex builds, Docker Cloud Build can automatically scale up the resources allocated to your build, ensuring faster completion regardless of the architecture complexity.
-* **Shared remote cache:** The shared remote cache in Docker Cloud Build can significantly accelerate multi-arch builds by reusing common layers across different architectures. This can be especially beneficial if your image has large base layers or shared dependencies.
 
 
 ### Getting Started
@@ -161,5 +129,13 @@ Finally, you can verify that the Docker image supports multiple architectures by
    ]
 }
 ```
+
+## Additional Resources
+
+- [Building Multi-platform Images](https://docs.docker.com/build/building/multi-platform/)
+
+
+Now that you have learned about building a multi-platform Docker images, it's time to learn how to use Remote builder like Docker Build Cloud that  lets you build your container images faster, both locally and in CI.
+
 
 {{< button text="Using Remote Builders" url="using-remote-builders" >}}
