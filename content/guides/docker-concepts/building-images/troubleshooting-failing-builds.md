@@ -3,6 +3,12 @@ title: Troubleshooting failing builds
 keywords: concepts, build, images, docker desktop
 description: Troubleshooting failing builds
 ---
+<iframe width="650" height="365" src="https://www.youtube.com/embed/nsWWQ1xoEy0?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Explanation
+
+In this concept, you will learn the following:
+- how to troubleshooting common errors during the image building process
 
 Building Docker images is a powerful way to containerize your applications, but sometimes things can go wrong, and builds can fail. This tutorial guides you through the essential steps to identify and resolve common issues encountered during Docker builds.
 
