@@ -20,24 +20,83 @@ Build secrets like passwords shouldn't be in your Docker image! While build argu
 In this hands-on, you will learn how to use and inject secrets during the build process.
 
 
-## Step 1. Modify your Dockerfile
+## Setup 
 
-Assuming that you're using a dedicated tool like `AWS Secrets Manager`, `HashiCorp Vault`, or `Azure Key Vault` to manage and inject secrets securely. These tools offer features like access control, rotation, and audit logging, let's modify the Dockerfile to mount the encrypted file as a secret during the build process:
+[Download this ZIP file](https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip) and extract the contents into a directory on your machine.
+
+
+Assuming that you're using a dedicated tool like `AWS Secrets Manager`, `HashiCorp Vault`, or `Azure Key Vault` to manage and inject secrets securely. These tools offer features like access control, rotation, and audit logging, let's create the Dockerfile to mount the encrypted file as a secret during the build process.
+
+### Creating the Dockerfile
+
+Now that you have the project, you are ready to create the `Dockerfile`.
+
+
+1. Create a file named `Dockerfile` in the same folder as the file `package.json`.
+
+    > **Dockerfile file extensions**
+    >
+    > It's important to note that the `Dockerfile` has _no_ file extension. Some editors
+    > will automatically add an extension to the file (or complain it doesn't have one).
+    { .important }
+
+2. In the `Dockerfile`, define your base image by adding the following line:
+
+    ```dockerfile
+    FROM node:20-alpine
+    ```
+
+3. Now, define the working directory by using the `WORKDIR` instruction:
+
+    ```dockerfile
+    WORKDIR /usr/local/app
+    ```
+
+4. Copy all of the files from the host into the container by using the `COPY` instruction:
+
+    ```dockerfile
+    COPY . .
+    ```
+
+5. Install the app's dependencies by using the `yarn` CLI and package manager. You run a command using the `RUN` instruction:
+
+    ```dockerfile
+    RUN yarn install --production
+    ```
+
+6. Finally, specify the default command to run by using the `CMD` instruction:
+
+    ```dockerfile
+    CMD ["node", "./src/index.js"]
+    ```
+
+And with that, you should have the following `Dockerfile`:
+
+```dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+EXPOSE 3000
+CMD ["node", "./src/index.js"]
+```
+
+Let's modify the `Dockerfile` to include secrets as shown below:
+
 
 ```diff
 FROM node:20-alpine
 WORKDIR /app
+COPY . .
 EXPOSE 3000
 # Mount secret files during build
 RUN --mount=type=secret,id=MYSQL_CREDS \
-    npm  install
-RUN --mount=type=secret,id=MYSQL_CREDS \
-    node build.js
+    yarn  install --production
 CMD ["node", "./src/index.js"]
 ```
 
 
-### Step 2. Specify secrets ID and their encrypted file locations:
+### Specify secrets ID and their encrypted file locations:
 
 Use the docker build command with the `--secret` flag to specify the secret ID and its encrypted file location.
 
