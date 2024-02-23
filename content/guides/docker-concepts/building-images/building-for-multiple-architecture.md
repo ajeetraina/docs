@@ -19,9 +19,9 @@ Traditionally, Docker images were tied to a specific architecture and operating 
 When building Docker images, developers can specify the target platform using the `--platform` flag. For example, you can build images for Linux on AMD64, ARM64, or other architectures. By default, Docker allows building for a single platform at a time. However, with advanced strategies, such as QEMU emulation or using multiple native nodes, developers can build for multiple platforms simultaneously.
 
 
-### Getting Started
+## Try it out
 
-To get started with building multi-platform Docker images, developers can use tools like `docker buildx`, which provides support for multi-platform builds out of the box. By creating a new builder and specifying the target platforms, developers can seamlessly build, push, and run multi-platform images.
+In this hands-on, you will will learn how to build multi-platform Docker images using tools like `docker buildx`, which provides support for multi-platform builds out of the box. By creating a new builder and specifying the target platforms, developers can seamlessly build, push, and run multi-platform images.
 
 Consider the following Dockerfile:
 
@@ -81,7 +81,7 @@ Build multi-platform images faster with Docker Build Cloud: https://docs.docker.
 
 Finally, you can verify that the Docker image supports multiple architectures by inspecting its manifest:
 
-```
+```console
  docker manifest inspect <your_dockerhub_id>/ node-app:1.0
 ```
 

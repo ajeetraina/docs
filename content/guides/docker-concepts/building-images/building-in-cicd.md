@@ -21,10 +21,9 @@ Building in CI involves the following steps:
 * Define the GitHub Actions workflow
 * Run the workflow
 
-### Getting Started 
+## Try it out
 
-In this section, you'll learn how to set up and use GitHub Actions to build and test your Docker image as well as push it to Docker Hub. You will complete the following steps:
-
+In this hands-on, you'll learn how to set up and use GitHub Actions to build and test your Docker image as well as push it to Docker Hub.
 
 
 ## Create the repository

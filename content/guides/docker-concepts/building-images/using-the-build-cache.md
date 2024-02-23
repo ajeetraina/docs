@@ -24,9 +24,11 @@ Think of a Docker image as a cake. Each layer represents a step in the recipe, l
 Docker images are built using layers, and each command in a Dockerfile results in a new layer. These layers are cached and can be reused if the command and its context haven't changed since the last build. However, changes in dependencies or source code can invalidate the cache for subsequent commands. The layered approach makes it efficient to share and distribute Docker images. If someone has already pulled the layers you need, Docker only needs to pull the new or changed layers when you fetch the image.
 
 
-### A Sample NodeJS application
+## Try it out
 
-Node.js applications often require dependencies to be installed using package managers like npm or yarn. Leveraging Docker's build cache efficiently can significantly speed up the Docker image building process. This tutorial will guide you through utilizing the Docker build cache effectively for Node.js applications.
+Node.js applications often require dependencies to be installed using package managers like npm or yarn. Leveraging Docker's build cache efficiently can significantly speed up the Docker image building process.
+
+This tutorial will guide you through utilizing the Docker build cache effectively for Node.js applications.
 
 Let us consider the following sample Dockerfile:
 

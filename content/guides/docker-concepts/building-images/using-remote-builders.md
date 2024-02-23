@@ -20,8 +20,11 @@ Docker Build Cloud is a service that lets you build your container images faster
 [Docker Cloud Build](https://docs.docker.com/build/cloud/) offers a powerful and scalable solution for building container images for multiple architectures, leveraging dedicated remote builders and a shared cache for efficiency. Depending on your specific needs and build complexity, it can be an excellent choice for streamlining your multi-arch workflow
 
 
-# Getting Started
+## Try it out
 
+In this hands-on, you will learn how to use Docker Build Cloud to build your container images faster.
+
+Here are the prerequsities:
 
 
 * Ensure that you have Docker Hub account
@@ -108,11 +111,8 @@ As a result, you will see `cloud-collabnix-testing` as the output.
 ```
 ### Step 9. Use the cloud builder, initiate a docker build with the following command
 
-```console
- docker buildx build --builder cloud-collabnix-testing --tag collabnix/myapp .
-```
 
-```
+```console
  docker buildx build --builder cloud-collabnix-testing --tag collabnix/myapp .
 [+] Building 15.4s (12/12) FINISHED                                                                       cloud:cloud-collabnix-testing
  => [internal] connected to docker build cloud service                                                                             0.0s

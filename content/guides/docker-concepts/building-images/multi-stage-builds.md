@@ -14,13 +14,11 @@ In this concept, you will learn the following:
 
 In the world of Docker, efficiency is key. Every byte counts, and every unnecessary layer in your image adds to its size and complexity. This is where multi-stage builds come into play, offering a powerful solution to streamline your Docker build process and produce leaner, more optimized images.
 
-Multi-stage builds are useful to anyone who has struggled to optimize `Dockerfiles` while keeping them easy to read and maintain. Multi-stage builds are a feature of `Dockerfiles` that allow you to define multiple build stages within a single `Dockerfile`. Each stage can be used to perform a specific task, such as compiling code, installing dependencies, or running tests. Once a stage is complete, you can copy only the necessary artifacts or files from that stage into subsequent stages, discarding any unnecessary build dependencies or intermediate files along the way. This results in a final image that contains only what is needed to run your application, without any extraneous baggage.
-
+Multi-stage builds allows you to create a pipeline within a Dockerfile. Multi-stage builds are useful to anyone who has struggled to optimize `Dockerfiles` while keeping them easy to read and maintain. Multi-stage builds are a feature of `Dockerfiles` that allow you to define multiple build stages within a single `Dockerfile`. Each stage can be used to perform a specific task, such as compiling code, installing dependencies, or running tests. Once a stage is complete, you can copy only the necessary artifacts or files from that stage into subsequent stages, discarding any unnecessary build dependencies or intermediate files along the way. This results in a final image that contains only what is needed to run your application, without any extraneous baggage. Multi-Stage builds provides the ability to seperate build-time and run-time images.
 
 ## The Benefits of Multi-Stage Builds
 
 The advantages of multi-stage builds are numerous:
-
 
 
 * **Reduced Image Size**: By eliminating unnecessary build dependencies and intermediate files, multi-stage builds result in smaller, more lightweight images. This not only saves disk space but also reduces network transfer times when pulling and pushing images.
@@ -28,8 +26,9 @@ The advantages of multi-stage builds are numerous:
 * **Simplified Maintenance:** Multi-stage builds make it easier to maintain and update your `Dockerfiles`. By breaking down the build process into smaller, more manageable stages, you can isolate changes and updates to specific parts of your application, reducing the risk of introducing errors or regressions.
 * **Improved Security:** By minimizing the size and complexity of your images, multi-stage builds reduce the attack surface and make it harder for attackers to exploit vulnerabilities in your applications or dependencies.
 
-To demonstrate how Multi-Stage build can help you reduce your image size and expedite the build process, let’s consider the following `Dockerfile`:
+## Try it out
 
+In this hands-on, you will see how Multi-stage build can help you reduce your image size and expedite the build process. Let's being with the following `Dockerfile`
 ```console
  FROM node:20
  WORKDIR /app
