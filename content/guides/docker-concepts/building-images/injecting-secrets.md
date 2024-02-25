@@ -147,17 +147,12 @@ Use the docker build command with the `--secret` flag to map an environmetna var
   docker build --secret id=mysecrets,src=mysecretfile . -f Dockerfile -t nodeapp
 ```
 
-## Step 3. Running the container
+## Running the container
 
 ```console
  docker run -d -p 3000:3000 node-app
 ```
 
-## Step 4. Verify Secret access
-
-```console
-  docker logs <container-id> | grep SECRET
-```
 This approach allows you to securely inject secrets into your Node.js app's build process using BuildKit without compromising the security of your sensitive information.
 
 
