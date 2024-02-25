@@ -81,51 +81,82 @@ EXPOSE 3000
 CMD ["node", "./src/index.js"]
 ```
 
-Let's modify the `Dockerfile` to include secrets as shown below:
+## Configuring Secrets
+
+The source of secrets can either be a file or environment variable. You can specify it explicitly with `type=file` or `type=env`.
+
+
+Let's consider the following secret file:
+
+```console
+ cat mysecretfile
+ bs-dfhfkdsfh
+```
+
+## Creating a Multi-Stage Dockerfile
+
+The following Dockerfile use builder stage for secret usage. It mounts the secrets during the build.
+The final stage will have no access to secrets.
 
 
 ```diff
+ # syntax = docker/dockerfile:1.3
+
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Copy your application files and the build script
+COPY package.json yarn.lock build-script.sh .
+
+# Install dependencies
+RUN yarn install --production
+
+# Mount the secret during the build
+RUN --mount=type=secret,id=mysecrets \
+    /bin/sh ./script.sh
+
+# Create a new stage for the final image (no secret access)
 FROM node:20-alpine
 WORKDIR /app
-COPY . .
+
+# Copy the application files from the builder stage
+COPY --from=builder /app .
+
+# Expose port 3000 for your application
 EXPOSE 3000
-# Mount secret files during build
-RUN --mount=type=secret,id=MYSQL_CREDS \
-    yarn  install --production
-CMD ["node", "./src/index.js"]
+
+# Start your application using the entrypoint
+CMD ["node", "src/index.js"]
 ```
 
+## Creating a sample build script
 
-### Specify secrets ID and their encrypted file locations:
+Copy the below content and save it as script.sh.
 
-Use the docker build command with the `--secret` flag to specify the secret ID and its encrypted file location.
+```diff
+ #!/bin/bash
+
+SECRET=$(cat /run/secrets/mysecrets)
+```
+
+## Building the image
+
+Use the docker build command with the `--secret` flag to map an environmetna variable directly to a secret ID.
 
 ```console
-docker build \
-    --secret id=MYSQL_CREDS,src=/path/to/encrypted_mysql_creds \
-    -t your_todo_list_app .
+  docker build --secret id=mysecrets,src=mysecretfile . -f Dockerfile -t nodeapp
 ```
-
-By default, secrets are mounted to /run/secrets/<id>. You can customize the mount point in the build container using the target option in the Dockerfile. In the following example, you mounted the secret to /path/to/encrypted_mysql_creds file in the build context.
-
-Replace placeholders with your actual information:
-
-- `MYSQL_CREDS`: Replace this with the actual ID you choose for your secret.
-- `/path/to/encrypted_mysql_creds`: Replace this with the location of your encrypted MySQL credentials file.
-
 
 ## Step 3. Running the container
 
 ```console
- docker run -d -p 3000:3000 todo-list-app
+ docker run -d -p 3000:3000 node-app
 ```
 
 ## Step 4. Verify Secret access
 
-Inside the running container, access the secret file or environment variable depending on how your application retrieves it. For example, in our case, the secret is mounted to /run/secrets/MYSQL_CREDS, you could check its contents with:
-
 ```console
- cat /run/secrets/MYSQL_CREDS
+  docker logs <container-id> | grep SECRET
 ```
 This approach allows you to securely inject secrets into your Node.js app's build process using BuildKit without compromising the security of your sensitive information.
 
