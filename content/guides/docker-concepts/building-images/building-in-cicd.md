@@ -175,4 +175,4 @@ To learn more about building in CI/CD, visit the following resources:
 Now that you have learned about building and publishing images to Docker Hub using CI/CD, it's time to learn how to make your Docker builds faster and more efficient using build cache.
 
 
-{{< button text="Using the Build Cache" url="using-the-build-cache" >}}
+{{< button text="Using the build cache" url="using-the-build-cache" >}}

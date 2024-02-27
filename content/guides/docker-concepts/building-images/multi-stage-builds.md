@@ -193,4 +193,4 @@ By optimizing each stage and only including what is necessary, you were able to 
 
 Now that you have learned about the Multi-stage Builds, it's time to learn how to build Docker image for multiple architecture.
 
-{{< button text="Building for Multiple Architecture" url="building-for-multiple-architecture" >}}
+{{< button text="Building for multiple architecture" url="building-for-multiple-architecture" >}}

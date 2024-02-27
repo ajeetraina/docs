@@ -21,17 +21,17 @@ Build secrets like passwords shouldn't be in your Docker image! While build argu
 - **Security Risk**: Embedding secrets directly in the image exposes them to anyone who has access to the image, posing a significant security threat.
 - **Lack of Flexibility**: Modifying secrets embedded in the image requires rebuilding the entire image, which can be inefficient.
 
-## Secret Mounts and SSH Mounts
+### Secret Mounts and SSH Mounts
 
 Instead of embedding secrets, use secret mounts or SSH mounts to provide secure access during the build process. These mounts allow you to temporarily access secrets stored outside the build context, ensuring they are not stored inside the final image.
 
 
 
-## Try it out
+### Try it out
 
 In this hands-on, you will learn how to inject sensitive information like passwords and API keys (secrets) into your Docker image build process without embedding them within the final image. This ensures both functionality and security for your application.
 
-## Create a secret file
+### Create a secret file
 
 Create a file named `mysecretfile` containing your secret (replace bs-dfhfkdsfh with your actual secret):
 
@@ -41,7 +41,7 @@ Create a file named `mysecretfile` containing your secret (replace bs-dfhfkdsfh 
  bs-dfhfkdsfh
 ```
 
-## Create a Dockerfile
+### Create a Dockerfile
 
 Create a plain-text file named `Dockerfile` with the following content:
 
@@ -51,7 +51,7 @@ FROM node:20-alpine
 RUN --mount=type=secret,id=mysecret cat /run/secrets/mysecret
 ```
 
-## Build an image
+### Build an image
 
 Use the `docker build` command with the `--secret` flag to map an environment variable (mysecret) to the secret ID (mysecret). 
 Additionally, specify the source path of the secret file using the `-t` flag to tag the image:
@@ -60,7 +60,7 @@ Additionally, specify the source path of the secret file using the `-t` flag to 
   docker build --secret id=mysecret,src=$PWD/secretfile -t testsecret .
 ```
 
-## View the image history
+### View the image history
 
 Use the `docker history` command to see the build layers of your image. Notice that the secret file content is not present in the final image layer:
 
@@ -92,4 +92,4 @@ Note: This guide demonstrates a basic example using a local secret file. In prod
 
 - [Build Secrets](https://docs.docker.com/build/building/secrets/)
 
-{{< button text="Troubleshooting Failing Builds" url="troubleshooting-failing-builds" >}}
+{{< button text="Troubleshooting failing builds" url="troubleshooting-failing-builds" >}}

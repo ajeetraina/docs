@@ -188,4 +188,4 @@ Note: If you don't specify the platform, Docker Build Cloud automatically builds
 Now that you have learned how to use remote builder like Docker Build Cloud, it's time to see how to inject secrets during the build.
 
 
-{{< button text="Injecting Secrets during the build" url="injecting-secrets" >}}
+{{< button text="Injecting secrets during the build" url="injecting-secrets" >}}

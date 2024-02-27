@@ -138,4 +138,4 @@ Finally, you can verify that the Docker image supports multiple architectures by
 Now that you have learned about building a multi-platform Docker images, it's time to learn how to use Remote builder like Docker Build Cloud that  lets you build your container images faster, both locally and in CI.
 
 
-{{< button text="Using Remote Builders" url="using-remote-builders" >}}
+{{< button text="Using remote builders" url="using-remote-builders" >}}

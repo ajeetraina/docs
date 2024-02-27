@@ -374,4 +374,4 @@ In this example, the && operator allows multiple commands to be executed sequent
 
 By following these optimization techniques, you can make your Docker builds faster and more efficient, leading to quicker iteration cycles and improved development productivity. 
 
-{{< button text="Multi-Stage Builds" url="multi-stage-builds" >}}
+{{< button text="Multi-stage builds" url="multi-stage-builds" >}}
