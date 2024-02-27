@@ -62,7 +62,7 @@ Now that we have a multi-architecture builder set up, we can build the Docker im
 ```
 
 
-This command builds the Docker image for both x86_64 and ARM64 architectures and tags it as my-node-app:multiarch. The --push flag pushes the built image to a container registry.
+This command builds the Docker image for both x86_64 and ARM64 architectures and tags it as my-node-app:multiarch. The `--push` flag pushes the built image to a container registry.
 
 You can verify if the ``docker buildx build`` command is picking up the right builder with the first line of the output:
 
