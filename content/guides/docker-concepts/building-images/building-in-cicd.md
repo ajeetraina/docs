@@ -34,6 +34,7 @@ GitHub Actions is one of the popular continuous integration and continuous deliv
 
 Building in CI involves the following steps:
 
+* Create a GitHub Account(if not created yet)
 * Create a new repository on GitHub
 * Define the GitHub Actions workflow
 * Run the workflow
@@ -41,6 +42,15 @@ Building in CI involves the following steps:
 ## Try it out
 
 In this hands-on, you'll learn how to set up and use GitHub Actions to build and test your Docker image as well as push it to Docker Hub.
+
+
+## Create a new GitHub account
+
+To get started with GitHub, you'll need to create a free personal account on GitHub.com and verify your email address.
+
+- Navigate to [GitHub](https://github.com/)
+- Click Sign up.
+- Follow the prompts to create your personal account.
 
 
 ## Create the repository
