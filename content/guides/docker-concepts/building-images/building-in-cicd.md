@@ -19,7 +19,7 @@ In this concept, you will learn the following:
 
 Once you've built and tested your Docker image locally, it's time to integrate it into the broader development workflow, where CI/CD (Continuous Integration and Continuous Delivery) plays a pivotal role. CI/CD is a practice that automates and streamlines the software development lifecycle. It's essentially a two-step process:
 
-1. **Continuous Integration (CI)**: This involves frequently merging code changes from various developers into a shared central repository. As each change is submitted, automated tests are triggered to identify and fix any issues early on. This helps catch errors quickly and prevents them from snowballing into larger problems later in the development process.
+1. **Continuous Integration (CI)**: This involves frequently merging code changes from various developers into a shared central repository. As you submit each change, it triggers the automated tests that identifies and fixes any issues early on. This helps catch errors and prevents them from snowballing into larger problems later in the development process.
 
 2. **Continuous Delivery (CD)**: Once the code passes the automated tests in the CI stage, CD kicks in. It automates the process of building, testing, and deploying the code to various environments, such as staging or production. This allows for faster delivery of new features and bug fixes to the end users.
 
@@ -30,7 +30,7 @@ Once you've built and tested your Docker image locally, it's time to integrate i
 3. **Reduced risk of errors**: Automation minimizes the potential for human errors during manual deployment processes.
 4. **Increased developer productivity**: Developers can focus on writing code instead of spending time on manual build and deployment tasks.
 
-GitHub Actions is one of the popular continuous integration and continuous delivery(CI/CD) platform that allows you to automate your build, test and deployment pipeline. It allows you to create workflows that build and test every pull requests to your repository, or merge pull requests to the production.
+GitHub Actions is one of the popular continuous integration and continuous delivery(CI/CD) platform that let you to automate your build, test and deployment pipeline. It let you to create workflows that build and test every pull requests to your repository, or merge pull requests to the production.
 
 Building in CI involves the following steps:
 
@@ -49,7 +49,7 @@ In this hands-on, you'll learn how to set up and use GitHub Actions to build and
 To get started with GitHub, you'll need to create a free personal account on GitHub.com and verify your email address.
 
 - Navigate to [GitHub](https://github.com/)
-- Click Sign up.
+- Click the `Sign up` button.
 - Follow the prompts to create your personal account.
 
 
@@ -158,9 +158,9 @@ Save the workflow file and run the job.
 
 ![github workflow](github_workflow.png)
 
-When the workflow is complete, go to your repositories on Docker Hub.If you see the new repository in that list, it means the GitHub Actions successfully pushed the image to Docker Hub ! 🎉
+When the workflow is complete, go to your repositories on Docker Hub. If you see the new repository in that list, it means the GitHub Actions successfully pushed the image to Docker Hub ! 🎉
 
-### Additional Resources
+### Additional resources
 
 To learn more about building in CI/CD, visit the following resources:
 

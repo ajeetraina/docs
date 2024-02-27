@@ -130,7 +130,7 @@ Finally, you can verify that the Docker image supports multiple architectures by
 }
 ```
 
-## Additional Resources
+## Additional resources
 
 - [Building Multi-platform Images](https://docs.docker.com/build/building/multi-platform/)
 

@@ -178,7 +178,7 @@ Note: If you don't specify the platform, Docker Build Cloud automatically builds
  docker context use default
 ```
 
-## Additional Resources
+## Additional resources
 
 - [Overview of Docker Build Cloud](https://docs.docker.com/build/cloud/)
 - [Use Docker Build Cloud in CI](https://docs.docker.com/build/cloud/ci/)

@@ -11,7 +11,7 @@ In this concept, you will learn the following:
 - What are Build Secrets?
 - How to inject Secrets during the build 
 
-Secrets are sensitive pieces of information like passwords, API keys, or database credentials that your application needs during the build process, but shouldn't be stored within the final image. Injecting these secrets securely ensures both functionality and security for your app
+Secrets are sensitive pieces of information like passwords, API keys, or database credentials that your application needs during the build process, hence you shouldn't store them within the final image. Injecting these secrets securely ensures both functionality and security for your app
 
 
 ### Why not store secrets in the image?
@@ -21,9 +21,9 @@ Build secrets like passwords shouldn't be in your Docker image! While build argu
 - **Security Risk**: Embedding secrets directly in the image exposes them to anyone who has access to the image, posing a significant security threat.
 - **Lack of Flexibility**: Modifying secrets embedded in the image requires rebuilding the entire image, which can be inefficient.
 
-### Secret Mounts and SSH Mounts
+### Secret mounts and SSH mounts
 
-Instead of embedding secrets, use secret mounts or SSH mounts to provide secure access during the build process. These mounts allow you to temporarily access secrets stored outside the build context, ensuring they are not stored inside the final image.
+Instead of embedding secrets, use secret mounts or SSH mounts to provide secure access during the build process. These mounts let you to temporarily access secrets stored outside the build context, ensuring they're not stored inside the final image.
 
 
 
@@ -62,7 +62,7 @@ Additionally, specify the source path of the secret file using the `-t` flag to 
 
 ### View the image history
 
-Use the `docker history` command to see the build layers of your image. Notice that the secret file content is not present in the final image layer:
+Use the `docker history` command to see the build layers of your image. Notice that the secret file content isn't present in the final image layer:
 
 ```console
  docker history testsecret:latest
@@ -79,7 +79,7 @@ b0c498a6f907   31 seconds ago   RUN /bin/sh -c cat /run/secrets/mysecret # b… 
 <missing>      4 weeks ago      /bin/sh -c #(nop) ADD file:d0764a717d1e9d0af…   8.42MB
 ```
 
-- The RUN instruction with the --mount flag tells Docker to mount the secret during the build process.
+- The `RUN` instruction with the `--mount` flag tells Docker to mount the secret during the build process.
 - `type=secret,id=mysecret` defines the mount type as secret and assigns the ID mysecret.
 - `cat /run/secrets/mysecret` reads the content of the secret from the mounted location.
 
@@ -88,7 +88,7 @@ This approach utilizes BuildKit to securely inject secrets during the build, ens
 Note: This guide demonstrates a basic example using a local secret file. In production environments, consider using a secure secret management system like Vault.
 
 
-## Additional Resources
+## Additional resources
 
 - [Build Secrets](https://docs.docker.com/build/building/secrets/)
 

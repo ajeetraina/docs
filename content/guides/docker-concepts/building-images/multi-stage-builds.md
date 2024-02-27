@@ -185,7 +185,7 @@ In this `Dockerfile`, we've replaced `FROM node:20` with `FROM node:20-alpine` t
 ```
 By optimizing each stage and only including what is necessary, you were able to significantly reduce the overall image size while still achieving the same functionality. This not only improves performance but also makes your Docker images more lightweight and easier to manage. Multi-stage builds are indeed effective in optimizing Docker images by allowing you to separate the build process into distinct stages, each with its own purpose.
 
-## Additional Resources
+## Additional resources
 
 - [Multi-stage Builds](https://docs.docker.com/build/building/multi-stage/)
 - [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)

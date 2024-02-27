@@ -368,7 +368,7 @@ Lastly, ensure that the Dockerfile has a minimal number of layers by combining c
 
 In this example, the && operator allows multiple commands to be executed sequentially within a single RUN instruction, reducing the number of layers.
 
-## Additional Resources
+## Additional resources
 
 - [Optimizing builds with cache management](https://docs.docker.com/build/cache/)
 
