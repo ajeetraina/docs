@@ -47,7 +47,7 @@ Guides:
       path: /guides/docker-concepts/the-basics/what-is-an-image/
     - title: "What is a registry?"
       path: /guides/docker-concepts/the-basics/what-is-a-registry/
-    - title: "What is a Docker Compose?"
+    - title: "What is Docker Compose?"
       path: /guides/docker-concepts/the-basics/what-is-docker-compose/
   - sectiontitle: "Building images"
     section:
@@ -57,13 +57,13 @@ Guides:
       path: /guides/docker-concepts/building-images/building-and-publishing-image/
     - title: "Building in CI/CD"
       path: /guides/docker-concepts/building-images/building-in-cicd/
-    - title: "Using the Build Cache"
+    - title: "Using the build cache"
       path: /guides/docker-concepts/building-images/using-the-build-cache/
-    - title: "Multi-Stage Builds"
+    - title: "Multi-stage builds"
       path: /guides/docker-concepts/building-images/multi-stage-builds/
-    - title: "Building for Multiple Architecture"
+    - title: "Building for multiple architecture"
       path: /guides/docker-concepts/building-images/building-for-multiple-architecture/
-    - title: "Using Remote Builders"
+    - title: "Using remote builders"
       path: /guides/docker-concepts/building-images/using-remote-builders/
     - title: "Injecting secrets during the build"
       path: /guides/docker-concepts/building-images/injecting-secrets/
