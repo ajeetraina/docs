@@ -34,11 +34,11 @@ Use the following instructions to search and pull  a Docker image..
 
 1. Open Docker Desktop dashboard and click on "Images".
 
-![image sidebar](image-sidebar.png)
+![image sidebar](sidebar-image.png)
 
 2. Click "Search images to run" button.
 
-![search images](image-search.png)
+![search images](search-image.png)
 
 3. Type `ubuntu` in the search window and then select "Ubuntu".
 
@@ -50,7 +50,7 @@ Use the following instructions to search and pull  a Docker image..
 
 5. View the pulled `ubuntu` image
 
-![pulled ubuntu image](pulled-ubuntu-image.png)
+![pulled ubuntu image](ubuntu-pulled-image.png)
 
 ### View the Ubuntu Image Layers
 
