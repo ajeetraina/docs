@@ -71,10 +71,22 @@ Guides:
       path: /guides/docker-concepts/building-images/troubleshooting-failing-builds/
   - sectiontitle: "Running containers"
     section:
-    - title: "Article one"
-      path: /guides/docker-concepts/running-containers/article-one/
-    - title: "Article two"
-      path: /guides/docker-concepts/running-containers/article-one/
+    - title: "Running your first container"
+      path: /guides/docker-concepts/running-containers/running-your-first-container/
+    - title: "Publishing & Exposing ports"
+      path: /guides/docker-concepts/running-containers/publishing-ports/
+    - title: "Configuring Containers"
+      path: /guides/docker-concepts/running-containers/configuring-containers/
+    - title: "Overriding Container Defaults"
+      path: /guides/docker-concepts/running-containers/overriding-container-defaults/
+    - title: "Persisting Container Data"
+      path: /guides/docker-concepts/running-containers/persisting-container-data/
+    - title: "Sharing local files with containers"
+      path: /guides/docker-concepts/running-containers/sharing-local-files/
+    - title: "Multi-container applications"
+      path: /guides/docker-concepts/running-containers/multicontainer-apps/
+    - title: "Using Docker Compose"
+      path: /guides/docker-concepts/running-containers/using-docker-compose/
 - sectiontitle: Language-specific guides
   section:
   - path: /language/

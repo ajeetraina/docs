@@ -1,10 +1,4 @@
 ---
-title: Article one
-keywords: concepts, build, images, docker desktop
-description: Article one
----
-
-TBD---
 title: Publishing and exposing ports
 keywords: concepts, build, images, docker desktop
 description: Publishing and exposing ports
