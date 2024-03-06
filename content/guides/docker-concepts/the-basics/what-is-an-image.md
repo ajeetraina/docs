@@ -32,27 +32,27 @@ In this hands-on, you will see how to search and pull a Docker image using Docke
 
 Use the following instructions to search and pull  a Docker image..
 
-1. Open Docker Desktop dashboard and click on "Images".
+### Step 1. Open Docker Desktop dashboard and click on "Images".
 
 ![image sidebar](sidebar-image.png)
 
-2. Click "Search images to run" button.
+### Step 2. Click "Search images to run" button.
 
 ![search images](search-image.png)
 
-3. Type `ubuntu` in the search window and then select "Ubuntu".
+### Step 3. Type `ubuntu` in the search window and then select "Ubuntu".
 
 ![select ubuntu](select-ubuntu.png)
 
-4. Click the `Pull` button
+### Step 4. Click the `Pull` button
 
 ![Pull ubuntu](pull-ubuntu.png) 
 
-5. View the pulled `ubuntu` image
+### Step 5. View the pulled `ubuntu` image
 
 ![pulled ubuntu image](ubuntu-pulled-image.png)
 
-### View the Ubuntu Image Layers
+### Step 6.  View the Ubuntu Image Layers
 
 Click on "ubuntu" image to view its image layers.
 

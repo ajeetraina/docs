@@ -26,23 +26,30 @@ Use the following instructions to run a container.
 
 1. Open Docker Desktop and select the search.
 2. Specify `nginx` in the search and then select **Run**.
+
+![nginx](nginx.png)
+
+
 3. Expand the **Optional settings**.
 4. In **Container name**, specify `nginx`.
 5. In **Host port**, specify `80`.
    ![Specifying host port 80](nginx-parameters.png?border=true)
-6. Select **Run**.
-7. View containers on Docker Desktop
+6. Click **Run**.
+
+###  View containers on Docker Desktop
+
+You just ran a container! You can view it in the **Containers** tab of Docker
+Desktop.
 
 ![nginx container running](nginx-running.png?border=true)
 
 
-You just ran a container! You can view it in the **Containers** tab of Docker
-Desktop. This container runs a simple web server that displays a simple website.
+This container runs a simple web server that displays a simple website.
 When working with more complex projects, you'll run different parts in different
 containers. For example, a different container for the frontend, backend, and
 database. In this walkthrough, you only have a simple frontend container.
 
-8. View the frontend
+###  Access the frontend
 
 The frontend is accessible on port 80 of your local host. Select the link in
 the **Port(s)** column of your container, or visit
@@ -50,7 +57,7 @@ the **Port(s)** column of your container, or visit
 
 ![Accessing container frontend from Docker Desktop](nginx-success.png?border=true)
 
-9: Explore your container
+### Explore your container
 
 Docker Desktop lets you easily view and interact with different aspects of your
 container. Try it out yourself. Select your container and then select **Files**
@@ -58,7 +65,7 @@ to explore your container's isolated file system.
 
 ![Viewing container details in Docker Desktop](nginx-files.png?border=true)
 
-10. Stop your container
+### Stop your container
 
 The `nginx` container continues to run until you stop it. To stop
 the container in Docker Desktop, go to the **Containers** tab and select the
