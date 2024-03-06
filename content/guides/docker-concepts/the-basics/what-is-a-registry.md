@@ -10,7 +10,8 @@ description: What is a container
 
 A container registry is a service that allows you to store, share, and manage these container images. You can think of container registry like a central repository where developers can find pre-built containers for various software, upload their own creations, and collaborate with others.
 
-[Docker Hub](https://hub.docker.com), created by Docker, is the leading container registry and one of the most popular options. It is the world’s largest repository of container images with an array of content sources including container community developers, open source projects, and independent software vendors (ISV) building and distributing their code in containers. It is a service provided by Docker for finding and sharing container images.
+
+[Docker Hub](https://hub.docker.com) is one of the most popular container registries . It is the world’s largest repository of container images with an array of content sources including container community developers, open source projects, and independent software vendors (ISV) building and distributing their code in containers. It is a service provided by Docker for finding and sharing container images.
 
 ### Key Features of Docker Hub
 
