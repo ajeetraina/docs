@@ -15,18 +15,42 @@ In this concept, you will learn the following:
 
 By default, containers are considered stateless. This means they don't maintain any state (data) between executions. Any changes made to data within a container are lost once the container stops. Containers are designed to be short-lived and disposable.  When a container finishes its task or is stopped, all its data disappears unless you take steps to persist it.
 
-While containers can create, update, and delete files, those changes are lost when the container is removed and all changes are isolated to that container. Sometimes, you may want to persist the data that a container generates. To do this, you can use volumes. With volumes, we can change all of this.
+Sometimes, you may want to persist the data that a container generates. Docker has two options for containers to store files on the host machine, so that the files are persisted even after the container stops: volumes, and bind mounts.
+
+## Volumes
+
 
 Volumes provide the ability to connect specific filesystem paths of the container back to the host machine. If a directory in the container is mounted, changes in that directory are also seen on the host machine. If we mount that same directory across container restarts, we'd see the same files.
 
-There are two main types of volumes. 
-- Named volume
-- Bind Mount
+When you mount a volume, it may be named or anonymous. Anonymous volumes are given a random name that's guaranteed to be unique within a given Docker host. Anonymous volumes are not managed by Docker and are scoped to a single container. They are destroyed when the container is removed. Anonymous volumes are implicitly created when you use the `-v` flag or the `--mount` option with Docker commands without specifying a volume name.
 
-Think of a named volume as simply a bucket of data. Docker maintains the physical location on the disk and you only need to remember the name of the volume. Every time you use the volume, Docker will make sure the correct data is provided.
 
-Named volumes are great if we simply want to store data, as we don't have to worry about where the data is stored. With bind mounts, we control the exact mountpoint on the host. We can use this to persist data, but is often used to provide additional data into containers. When working on an application, we can use a bind mount to mount our source code into the container to let it see code changes, respond, and let us see the changes right away.
+## Named Volumes
 
+
+Named volumes are managed by Docker and have a user-defined name. They can be shared across multiple containers and persist even after the container using them is removed. Named volumes are explicitly created using the `docker volume create` command or the `docker run` command with the `--volume-driver` option and a specific driver.
+
+Compared to anonymous volumes that are only visible to the container they are mounted in, Named volumes can be mounted into multiple containers at the same time, allowing them to share data.
+
+| Feature | Volumes | Named Volumes |
+|-----|------|-----|
+| Scope | Single container | Multiple containers |
+| Creation | Implicit | Explicit(`docker volueme create` |
+| Visbility | Single container | Multiple containers(shared) |
+| Management | No specific commands | List, inspect, prune, remove commands|
+
+
+
+## Bind Mounts
+
+Bind mounts have limited functionality compared to volumes. When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its full path on the host machine. The file or directory doesn't need to exist on the Docker host already. It is created on demand if it doesn't yet exist. Bind mounts are fast, but they rely on the host machine's filesystem having a specific directory structure available. If you are developing new Docker applications, consider using named volumes instead. You can't use Docker CLI commands to directly manage bind mounts.
+
+| Feature | Named Volumes | Bind Mounts |
+|-----|------|-----|
+| Host Location | Docker chooses | You control |
+| Mount Example(using `-v`) | my-volume:/usr/local/data | /path/to/data:/usr/local/data |
+| Populates new volume with container contents | Yes | No|
+| Supports Volume Drivers | Yes | No |
 
 ## Try it out
 
