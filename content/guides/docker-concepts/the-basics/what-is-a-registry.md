@@ -13,6 +13,15 @@ A container registry is a service that allows you to store, share, and manage th
 
 [Docker Hub](https://hub.docker.com) is one of the most popular container registries . It is the world’s largest repository of container images with an array of content sources including container community developers, open source projects, and independent software vendors (ISV) building and distributing their code in containers. It is a service provided by Docker for finding and sharing container images.
 
+While Docker Hub is a popular option, there's a whole world of container registries available today. Here's the list of 3rd party container registries:
+
+- Amazon Elastic Container Registry (ECR)
+- Azure Container Registry (ACR)
+- Google Container Registry (GCR)
+- JFrog Artifactory
+- Quay.io (for open-source projects)
+
+
 ### Key Features of Docker Hub
 
 - [Repositories](https://docs.docker.com/docker-hub/repos/): Push and pull container images.
