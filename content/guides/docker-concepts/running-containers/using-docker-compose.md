@@ -24,7 +24,7 @@ Docker Compose offers numerous advantages:
 - **Portability**: Customize your configuration for different environments using variables in the YAML file.
 - **Extensive Community**: Docker Compose benefits from a large and active community providing resources and support
 
-Docker Compose Common Use cases:
+### Docker Compose Common Use cases:
 
 - **Development Environments**: Quickly set up isolated development environments with all dependencies by defining them in the YAML file.
 - **Automated Testing**: Create and destroy isolated testing environments with ease for automated test suites.
@@ -34,10 +34,10 @@ Docker Compose Common Use cases:
 
 Docker Compose uses a YAML file (`compose.yml`) to define multi-container applications. This file specifies:
 
-- Services: The individual components of your application.
-- Networks: How services communicate with each other.
-- Volumes: Persistent storage for service data.
-- Secrets: Secure configuration data for services (passwords, keys).
+- **Services**: The individual components of your application.
+- **Networks**: How services communicate with each other.
+- **Volumes**: Persistent storage for service data.
+- **Secrets**: Secure configuration data for services (passwords, keys).
 
 ## Try it now
 
@@ -46,6 +46,10 @@ In this hands-on, you'll see how to write a Docker compose file for multi-contai
 ### Setup
 
 [Download this ZIP file](https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip) and extract the contents into a directory on your machine.
+
+## Running a Single Container Application
+
+Before you jump to the Compose YAML file, let's try to run a single and multi-container application and try to convert it into a Compose file.
 
 ### Step 1. Create a file named Dockerfile
 
@@ -95,7 +99,7 @@ You can stop the running container by clicking on "Stop" button on Docker Deskto
 ![stop container](stop-container.png)
 
 
-## II. Running a Multi-container Application
+## Running a Multi-container Application
 
 ### Step 5. Creating a Docker network for MySQL container
 
@@ -407,5 +411,12 @@ app_1    | Listening on port 3000
 The service name is displayed at the beginning of the line (often colored) to help distinguish messages. If you want to view the logs for a specific service, you can add the service name to the end of the logs command (for example, `docker compose logs -f myapp`).
 
 At this point, you should be able to open your app and see it running. And hey! We're down to a single command!
+
+## Additional resources
+
+- [Overview of Docker Compose](https://docs.docker.com/compose/)
+- [Installing Docker Compose](https://docs.docker.com/compose/install/)
+- [How Compose works](https://docs.docker.com/compose/compose-application-model/)
+- [Turn on GPU access with Docker Compose](https://docs.docker.com/compose/gpu-support/)
 
 
