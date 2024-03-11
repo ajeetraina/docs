@@ -23,6 +23,28 @@ When building Docker images, developers can specify the target platform using th
 
 In this hands-on, you will will learn how to build multi-platform Docker images using tools like `docker buildx`, which provides support for multi-platform builds out of the box. By creating a new builder and specifying the target platforms, developers can seamlessly build, push, and run multi-platform images.
 
+If you have git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
+
+{{< tabs >}}
+{{< tab name="Clone with git" >}}
+
+Use the following command in a terminal to clone the sample application repository.
+
+```console
+$ git clone https://github.com/docker/getting-started-todo-app
+```
+
+{{< /tab >}}
+{{< tab name="Download" >}}
+
+Download the source and extract it.
+
+{{< button url="https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip" text="Download the source" >}}
+
+{{< /tab >}}
+{{< /tabs >}}
+
+
 Consider the following Dockerfile:
 
 ```console
@@ -33,8 +55,11 @@ Consider the following Dockerfile:
  CMD ["node", "./src/index.js"]
 ```
 
+Save the file as `Dockerfile.single` and execute the following command:
+
+
 ```console
- docker build -t node-app:1.0 .
+ docker build -t node-app:1.0 . -f Dockerfile.single
 ```
 
 ## Create a Multi-Architecture Buildx Builder

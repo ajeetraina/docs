@@ -28,7 +28,33 @@ The advantages of multi-stage builds are numerous:
 
 ## Try it out
 
-In this hands-on, you will see how Multi-stage build can help you reduce your image size and expedite the build process. Let's being with the following `Dockerfile`
+In this hands-on, you will see how Multi-stage build can help you reduce your image size and expedite the build process. 
+
+If you have git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
+
+{{< tabs >}}
+{{< tab name="Clone with git" >}}
+
+Use the following command in a terminal to clone the sample application repository.
+
+```console
+$ git clone https://github.com/docker/getting-started-todo-app
+```
+
+{{< /tab >}}
+{{< tab name="Download" >}}
+
+Download the source and extract it.
+
+{{< button url="https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip" text="Download the source" >}}
+
+{{< /tab >}}
+{{< /tabs >}}
+
+
+Let's being with the following `Dockerfile`
+
+
 ```console
  FROM node:20
  WORKDIR /app
@@ -38,10 +64,10 @@ In this hands-on, you will see how Multi-stage build can help you reduce your im
 ```
 
 
-Save the file as `Dockerfile` and execute the following command:
+Save the file as `Dockerfile.single` and execute the following command:
 
 ```console
- docker build -t node-app:1.0
+ docker build -t node-app:1.0 -f Dockerfile.single
 ```
 Let's verify the size of Docker image that we just built:
 
@@ -49,7 +75,7 @@ Let's verify the size of Docker image that we just built:
 
 As shown in the Docker Dashboard, the complete Docker image size is 1.86GB.
 
-Let’s streamline the build process by creating the following new `Dockerfile`:
+Let’s streamline the build process by leveraging the existing `Dockerfile` present in the repository:
 
 ```console
 FROM node:20 AS base
@@ -123,7 +149,7 @@ Let's break down the `Dockerfile` provided, which utilizes multi-stage builds:
 Let’s save the file with a name `Dockerfile.multi` and execute the following build command:
 
 ```console
- docker build -t node-app:1.0 . -f Dockerfile.multi
+ docker build -t node-app:1.0 . -f Dockerfile
 ```
 
 That's a minor reduction in image size! In your original `Dockerfile`, all dependencies and files were copied into the image, resulting in a larger image size. However, with multi-stage builds, you can split the build process into smaller, more focused stages. 

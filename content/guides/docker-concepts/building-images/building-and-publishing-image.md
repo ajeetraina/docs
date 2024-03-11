@@ -113,7 +113,29 @@ In this hands-on, you will build a simple image using a provided `Dockerfile` an
 
 ### Setup
 
-1. Get the sample application from **here**.
+1. Get the sample application.
+
+If you have git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
+
+{{< tabs >}}
+{{< tab name="Clone with git" >}}
+
+Use the following command in a terminal to clone the sample application repository.
+
+```console
+$ git clone https://github.com/docker/getting-started-todo-app
+```
+
+{{< /tab >}}
+{{< tab name="Download" >}}
+
+Download the source and extract it.
+
+{{< button url="https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip" text="Download the source" >}}
+
+{{< /tab >}}
+{{< /tabs >}}
+
 
 2. If you don't have a Docker account yet, create one now. Once you've done that, sign in to Docker Desktop using that account.
 

@@ -68,7 +68,27 @@ In this hands-on, you'll see how to configure your existing Dockerfile for a tod
 
 ## Setup
 
-[Download this ZIP file](https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip) and extract the contents into a directory on your machine.
+If you have git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
+
+{{< tabs >}}
+{{< tab name="Clone with git" >}}
+
+Use the following command in a terminal to clone the sample application repository.
+
+```console
+$ git clone https://github.com/docker/getting-started-todo-app
+```
+
+{{< /tab >}}
+{{< tab name="Download" >}}
+
+Download the source and extract it.
+
+{{< button url="https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip" text="Download the source" >}}
+
+{{< /tab >}}
+{{< /tabs >}}
+
 
 
 ### Step 1. Modify your `src/index.js` file 

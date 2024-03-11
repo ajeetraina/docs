@@ -28,11 +28,31 @@ In this hands-on, you'll see how to run a Docker container using `docker run` co
 
 ### Setup
 
-[Download this ZIP file](https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip) and extract the contents into a directory on your machine.
+If you have git, you can clone the repository for the sample application. Otherwise, you can download the sample application. Choose one of the following options.
 
-### Step 1. Create a file named Dockerfile
+{{< tabs >}}
+{{< tab name="Clone with git" >}}
 
-Create a file named Dockerfile in the same folder as the file package.json
+Use the following command in a terminal to clone the sample application repository.
+
+```console
+$ git clone https://github.com/docker/getting-started-todo-app
+```
+
+{{< /tab >}}
+{{< tab name="Download" >}}
+
+Download the source and extract it.
+
+{{< button url="https://github.com/docker/getting-started-todo-app/blob/build-image-from-scratch/app.zip" text="Download the source" >}}
+
+{{< /tab >}}
+{{< /tabs >}}
+
+
+### Step 1. Create a new Dockerfile
+
+Create a file named `Dockerfile.single` in the same folder as the file package.json
 
 ```diff
 FROM node:20-alpine
@@ -44,12 +64,15 @@ EXPOSE 3000
 CMD ["node", "./src/index.js"]
 ```
 
+Save the file as Dockerfile.single and execute the following command:
+
+
 ### 2. Build the Image
 
 Open a terminal in the directory containing your modified Dockerfile and run:
 
 ```console
-docker build -t myapp .
+docker build -t myapp . -f Dockerfile.single
 ```
 
 ### 3. Run the Container
