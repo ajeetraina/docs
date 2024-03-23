@@ -65,10 +65,7 @@ Once you have an image downloaded, you can view quite a few details about the im
 
 ![A screenshot of the image details view for the docker/welcome-to-docker image](images/image-layers.webp?border=true&w=1050&h=400)
 
-In this walkthrough, you searched and pulled a Docker image. In addition to pulling a Docker image, you also learned about the layers of a Docker Image.
-
 {{< /tab >}}
-
 {{< tab name="CLI" >}}
 
 Follow the instructions to search and pull a Docker image using CLI to view its layers.
@@ -126,10 +123,10 @@ Each of these lines represents different layers of the image being downloaded an
 
 The command shows a list of Docker images currently available on your system. The `docker/welcome-to-docker` has a total size of approximately 29.7MB.
 
-In this walkthrough, you searched and pulled a Docker image. In addition to pulling a Docker image, you also learned about the layers of a Docker Image.
-
 {{< /tab >}}
 {{< /tabs >}}
+
+In this walkthrough, you searched and pulled a Docker image. In addition to pulling a Docker image, you also learned about the layers of a Docker Image.
 
 ## Additional resources
 
