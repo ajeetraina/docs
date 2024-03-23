@@ -31,7 +31,7 @@ Here's what makes them awesome:
 
 ## Try it now
 
-In this hands-on, you will see how to run a simple Docker container using Docker Desktop GUI.
+In this hands-on, you will see how to run a Docker container using Docker Desktop GUI.
 `
 {{< tabs >}}
 {{< tab name="Using Docker Desktop" >}}
@@ -57,9 +57,9 @@ Use the following instructions to run a container.
 ![A screenshot of Docker Desktop dashboard showing the container run dialog with welcome-to-docker typed in as the container name and 8080 specified as the port number](images/run-a-new-container.webp?border=true&w=550&h=400)
 8. Click **Run**.
 
-## View your container
-
 Congratulations!! You just ran your first container! 🍻
+
+## View your container
  
 You can view it in the **Containers** tab of the Docker Desktop GUI.
 
@@ -132,14 +132,14 @@ The `docker/welcome-to-docker` container continues to run until you stop it. You
  docker stop <the-container-id>
 ```
 
-In order to remove a container, you can use `docker rm <the-container-id>` command.
+To remove a container, you can use `docker rm <the-container-id>` command.
 
 Now that you have learned the basics of a Docker container, it's time to learn about Docker image and its layered architecture.
 
 {{< /tab >}}
 {{< /tabs >}}
 
-Now that you have learned the basics of a Docker container, it's time to learn about Docker image and it's layered architecture.
+Now that you ran a pre-made Docker image and explored a container, it's time to learn about Docker image and it's layered architecture.
 
 ## Additional resources
 
