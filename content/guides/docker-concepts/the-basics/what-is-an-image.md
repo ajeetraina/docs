@@ -84,7 +84,6 @@ Follow the instructions to search and pull a Docker image using CLI to view its 
 You will see output like the following:
 
 ```console
- docker search docker/welcome-to-docker
  NAME                       DESCRIPTION                                     STARS     OFFICIAL
  docker/welcome-to-docker   Docker image for new users getting started w…   20
 ```
