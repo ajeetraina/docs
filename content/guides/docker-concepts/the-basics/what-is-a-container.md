@@ -38,6 +38,7 @@ A container is simply an isolated process with all of the files it needs to run.
 
 ## Try it now
 
+
 In this hands-on, you will see how to run a simple Docker container using Docker Desktop GUI.
 
 {{< tabs >}}
@@ -62,6 +63,7 @@ Use the following instructions to run a container.
     ![A screenshot of Docker Desktop dashboard showing the container run dialog with welcome-to-docker typed in as the container name and 8080 specified as the port number](images/run-a-new-container.webp?border=true&w=550&h=400)
 
 7. Select **Run** to start your container.
+
 
 Congratulations!! You just ran your first container! 🎉
 
@@ -160,9 +162,11 @@ The `docker/welcome-to-docker` container continues to run until you stop it. You
 
 2. Provide the container ID or name to the [`docker stop`](/reference/cli/docker/container/stop/) command:
 
+
     ```console
     docker stop <the-container-id>
     ```
+
 
 > **Tip**
 >
@@ -175,6 +179,7 @@ The `docker/welcome-to-docker` container continues to run until you stop it. You
 
 {{< /tab >}}
 {{< /tabs >}}
+
 
 ## Additional resources
 
