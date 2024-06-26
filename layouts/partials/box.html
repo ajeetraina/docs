@@ -1,0 +1,18 @@
+<div class="flex flex-col md:flex-row md:gap-4 mb-8">
+  <div class="flex-1 md:w-1/3">
+    <h3 class="text-lg font-bold mb-2">{{ .title }}</h3>
+    <video controls>
+      <source src="{{ .video }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="flex-1 md:w-2/3">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="text-md font-bold">Estimated Timeline:</h4>
+      <span class="text-sm">{{ .timeline }}</span>
+    </div>
+    <div>
+      {{ .content | safeHTML }}
+    </div>
+  </div>
+</div>

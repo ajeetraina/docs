@@ -17,11 +17,13 @@
   </div>
   {{ end }}
 </nav>
+
 {{ if $firstSection }}
 {{ $allSections := slice }}
 {{ range $i, $e := ($scratch.GetSortedMapValues "sections") }}
 {{ $allSections = $allSections | append (index $e "title") }}
 {{ end }}
+
 <nav id="sectiontree" class="text-sm flex flex-col">
   <div class="block py-4 md:hidden text-gray-light dark:text-gray-dark">This section</div>
   {{/* The current page is in the table of contents */}}
@@ -72,3 +74,60 @@
 </li>
 {{ end }}
 {{ end }}
+
+<!-- Add this section to your sidebar.html file -->
+
+<!-- Add this section to your sidebar.html file -->
+
+<div class="filter-sidebar mt-4">
+  <h3 class="text-lg font-bold mb-2">Filters</h3>
+
+  <div class="filter-section">
+    <h4 class="text-md font-bold mb-1">Product</h4>
+    <div class="filter-item mb-1">
+      <input type="checkbox" id="filter1" name="Docker Desktop" class="mr-2">
+      <label for="docker-desktop"  class="text-sm">Docker Desktop</label>
+    </div>
+    <div class="filter-item mb=1">
+      <input type="checkbox" id="filter2" name="Image Deep Dive" class="mr-2">
+      <label for="image-deep-dive" class="text-sm">Image Deep Dive</label>
+    </div>
+    <div class="filter-item">
+      <input type="checkbox" id="filter3" name="Compose" class="mr-2" >
+      <label for="compose" class="text-sm" >Docker Compose</label>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h4 class="text-md font-bold mb-1">Roles</h4>
+    <div class="filter-item mb-1">
+      <input type="checkbox" id="filter4" name="Admin" class="mr-2">
+      <label for="admin"  class="text-sm">Admin</label>
+    </div>
+    <div class="filter-item mb=1">
+      <input type="checkbox" id="filter5" name="DevOps" class="mr-2">
+      <label for="devops" class="text-sm">DevOps</label>
+    </div>
+    <div class="filter-item">
+      <input type="checkbox" id="filter6" name="DevSecOps" class="mr-2" >
+      <label for="devsecops" class="text-sm" >DevSecOps</label>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <h4 class="text-md font-bold mb-1">Level</h4>
+    <div class="filter-item mb-1">
+      <input type="checkbox" id="filter7" name="Beginners" class="mr-2">
+      <label for="beginners"  class="text-sm">Beginners</label>
+    </div>
+    <div class="filter-item mb=1">
+      <input type="checkbox" id="filter8" name="Intermediate" class="mr-2">
+      <label for="intermediate" class="text-sm">Intermediate</label>
+    </div>
+    <div class="filter-item">
+      <input type="checkbox" id="filter9" name="Advanced" class="mr-2" >
+      <label for="advanced" class="text-sm" >Advanced</label>
+    </div>
+  </div>
+</div>
+

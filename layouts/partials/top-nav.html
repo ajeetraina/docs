@@ -8,6 +8,9 @@
         <a class="block px-2 py-1" href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
+      <li {{- if eq .Title "Learning Paths" }} class="border-b-4" {{- end }}>
+        <a class="block px-2 py-1" href="{{ "/learning-paths/" | relURL }}">Learning Paths</a>
+      </li>
     </ul>
   </nav>
 </div>

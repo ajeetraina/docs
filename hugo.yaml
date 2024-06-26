@@ -128,6 +128,52 @@ menus:
   - name: Reference
     url: /reference/
     weight: 3
+  - name: Learning Paths
+    url: /learning-paths/
+    weight: 4
+    children:
+      - identifier: docker-desktop
+        url: /learning-paths/docker-desktop/
+        name: Docker Desktop
+        children:
+          - url: /learning-paths/docker-desktop/module-1/
+            name: Module 1 - Chapter 1
+          - url: /learning-paths/docker-desktop/module-2/
+            name: Module 1 - Chapter 2
+          - url: /learning-paths/docker-desktop/module-3/
+            name: Module 1 - Chapter 3
+          - url: /learning-paths/docker-desktop/module-4/
+            name: Module 1 - Chapter 4
+          - url: /learning-paths/docker-desktop/module-5/
+            name: Module 1 - Chapter 5
+      - identifier: image-deep-dive
+        url: /learning-paths/image-deep-dive/
+        name: Image Deep Dive
+        children:
+          - url: /learning-paths/image-deep-dive/module-1/
+            name: Module 1 - Chapter 1
+          - url: /learning-paths/image-deep-dive/module-2/
+            name: Module 1 - Chapter 2
+          - url: /learning-paths/image-deep-dive/module-3/
+            name: Module 1 - Chapter 3
+          - url: /learning-paths/image-deep-dive/module-4/
+            name: Module 1 - Chapter 4
+          - url: /learning-paths/image-deep-dive/module-5/
+            name: Module 1 - Chapter 5
+      - identifier: compose
+        url: /learning-paths/compose/
+        name: Compose
+        children:
+          - url: /learning-paths/compose/module-1/
+            name: Module 1 - Chapter 1
+          - url: /learning-paths/compose/module-2/
+            name: Module 1 - Chapter 2
+          - url: /learning-paths/compose/module-3/
+            name: Module 1 - Chapter 3
+          - url: /learning-paths/compose/module-4/
+            name: Module 1 - Chapter 4
+          - url: /learning-paths/compose/module-5/
+            name: Module 1 - Chapter 5
 
   footer:
     - url: https://www.docker.com/products
