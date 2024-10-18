@@ -1,0 +1,46 @@
+{
+  "name": "express-api-starter",
+  "version": "1.2.0",
+  "description": " A basic start for an express.js API",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
+    "nodemon": "nodemon --exec npm run dev",
+    "build": "rimraf dist && babel src -d dist",
+    "prettier": "prettier --write src",
+    "lint:fix": "eslint --fix src",
+    "lint": "eslint --fix src",
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/w3cj/express-api-starter.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@eslint/config-array": "^0.18.0",
+    "@eslint/object-schema": "^2.1.4",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "glob": "^11.0.0",
+    "helmet": "^7.1.0",
+    "lru-cache": "^11.0.0",
+    "morgan": "^1.10.0",
+    "rimraf": "^6.0.1",
+    "superagent": "^10.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "eslint": "^7.28.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.23.4",
+    "mocha": "^9.0.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
+  }
+}
